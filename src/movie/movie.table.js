@@ -1,4 +1,4 @@
-const { DataTypes } = rquire("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("../db/connection");
 
 const Movie = sequelize.define("Movie", {
@@ -8,6 +8,9 @@ const Movie = sequelize.define("Movie", {
     },
     actor : {
         type: DataTypes.STRING
+    },
+    rating: {
+        type: DataTypes.INTEGER
     }
 });
 
