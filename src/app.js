@@ -1,6 +1,6 @@
 require("./db/connection");
 const yargs = require("yargs");
-const { addMovie, readMovies, readMovie, updateMovie, deleteMovie } = require("./movie/movie.functions");
+const { addMovie, readMovies, updateMovie, deleteMovie } = require("./movie/movie.functions");
 
 const app = async (args) => {
     try {
