@@ -1,9 +1,12 @@
 const Movie = require("./movie.table");
+const User = require("../user/user.table");
 
 exports.addMovie = async (movieObj) => {
     try {
         await Movie.sync();
-        await Movie.create(movieObj);
+        const user = await User.findOne({ where: { id: movieObj.UserId } });
+        const movie = await Movie.create({title: movieObj.title, actor: movieObj.actor, rating: movieObj.rating});
+        user.setMovies(movie);
         console.log(`Successfuly added ${movieObj.title} to the database`);
     } catch (error) {
         console.log(error);
